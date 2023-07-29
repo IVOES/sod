@@ -1,0 +1,1523 @@
+sod.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 39 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+sod.c:1761:2: style: Assignment of function parameter has no effect outside the function. [uselessAssignmentArg]
+ recursive = 0; /* cc warning */
+ ^
+sod.c:8325:3: warning: Assignment of function parameter has no effect outside the function. Did you forget dereferencing it? [uselessAssignmentPtrArg]
+  options = 0; /* cc warn on unused var */
+  ^
+sod_img_writer.h:1356:12: style: Array index 'i' is used before limits check. [arrayIndexThenCheck]
+  for (; DU[i] == 0 && i <= end0pos; ++i) {
+           ^
+sod_img_writer.h:1044:38: warning: The address of local variable 'o' might be accessed at non-zero index. [objectIndex]
+  crc = (crc >> 8) ^ crc_table[buffer[i] ^ (crc & 0xff)];
+                                     ^
+sod_img_writer.h:1173:15: note: Address of variable taken here.
+ stbiw__wpcrc(&o, 13);
+              ^
+sod_img_writer.h:1173:15: note: Calling function 'stbiw__wpcrc', 1st argument '&o' value is lifetime=o
+ stbiw__wpcrc(&o, 13);
+              ^
+sod_img_writer.h:1055:46: note: Calling function 'stbiw__crc32', 1st argument '*data-len-4' value is lifetime=o
+ unsigned int crc = stbiw__crc32(*data - len - 4, len + 4);
+                                             ^
+sod_img_writer.h:1044:38: note: The address of local variable 'o' might be accessed at non-zero index.
+  crc = (crc >> 8) ^ crc_table[buffer[i] ^ (crc & 0xff)];
+                                     ^
+sod_img_writer.h:1056:2: error: The address of local variable 'o' is accessed at non-zero index. [objectIndex]
+ stbiw__wp32(*data, crc);
+ ^
+sod_img_writer.h:1173:15: note: Address of variable taken here.
+ stbiw__wpcrc(&o, 13);
+              ^
+sod_img_writer.h:1173:15: note: Calling function 'stbiw__wpcrc', 1st argument '&o' value is lifetime=o
+ stbiw__wpcrc(&o, 13);
+              ^
+sod_img_writer.h:1056:2: note: The address of local variable 'o' is accessed at non-zero index.
+ stbiw__wp32(*data, crc);
+ ^
+sod_img_writer.h:1056:2: error: The address of local variable 'o' is accessed at non-zero index. [objectIndex]
+ stbiw__wp32(*data, crc);
+ ^
+sod_img_writer.h:1180:15: note: Address of variable taken here.
+ stbiw__wpcrc(&o, zlen);
+              ^
+sod_img_writer.h:1180:15: note: Calling function 'stbiw__wpcrc', 1st argument '&o' value is lifetime=o
+ stbiw__wpcrc(&o, zlen);
+              ^
+sod_img_writer.h:1056:2: note: The address of local variable 'o' is accessed at non-zero index.
+ stbiw__wp32(*data, crc);
+ ^
+sod_img_writer.h:1056:2: error: The address of local variable 'o' is accessed at non-zero index. [objectIndex]
+ stbiw__wp32(*data, crc);
+ ^
+sod_img_writer.h:1184:15: note: Address of variable taken here.
+ stbiw__wpcrc(&o, 0);
+              ^
+sod_img_writer.h:1184:15: note: Calling function 'stbiw__wpcrc', 1st argument '&o' value is lifetime=o
+ stbiw__wpcrc(&o, 0);
+              ^
+sod_img_writer.h:1056:2: note: The address of local variable 'o' is accessed at non-zero index.
+ stbiw__wp32(*data, crc);
+ ^
+sod.c:3275:74: style: Expression 'exp(x) - 1' can be replaced by 'expm1(x)' to avoid loss of precision. [unpreciseMathCall]
+static inline float elu_activate(float x) { return (x >= 0)*x + (x < 0)*(exp(x) - 1); }
+                                                                         ^
+sod.c:3279:54: style: Expression 'exp(x) - 1' can be replaced by 'expm1(x)' to avoid loss of precision. [unpreciseMathCall]
+static inline float tanh_activate(float x) { return (exp(2 * x) - 1) / (exp(2 * x) + 1); }
+                                                     ^
+sod.c:8853:27: warning: Logical disjunction always evaluates to true: EXPR != '[' || EXPR != '#'. [incorrectLogicOperator]
+ else if (zArch[0] != '[' || zArch[0] != '#' || sz < 170) {
+                          ^
+sod_img_reader.h:5414:15: style: Redundant condition: If 'req_comp >= 3', the comparison 'req_comp' is always true. [redundantCondition]
+ if (req_comp && req_comp >= 3) // we can directly decode 3 or 4
+              ^
+sod.c:7772:3: warning: sscanf() without field width limits can crash with huge input data. [invalidscanf]
+  sscanf(line, "%s %d", id, &parent);
+  ^
+sod_img_writer.h:828:2: error: Memory leak: p [memleak]
+ return *arr;
+ ^
+sod.c:4162:4: error: Common realloc mistake: 'line' nulled but not freed upon failure [memleakOnRealloc]
+   line = realloc(line, size * sizeof(char));
+   ^
+sod.c:7430:3: error: Common realloc mistake: 'map' nulled but not freed upon failure [memleakOnRealloc]
+  map = realloc(map, n * sizeof(int));
+  ^
+sod_img_writer.h:905:2: warning: Either the condition '(out)==0' is redundant or there is possible null pointer dereference: out. [nullPointerRedundantCheck]
+ stbiw__sbpush(out, 0x78);   // DEFLATE 32K window
+ ^
+sod_img_writer.h:906:2: note: Assuming that condition '(out)==0' is not redundant
+ stbiw__sbpush(out, 0x5e);   // FLEVEL = 1
+ ^
+sod_img_writer.h:905:2: note: Null pointer dereference
+ stbiw__sbpush(out, 0x78);   // DEFLATE 32K window
+ ^
+sod_img_writer.h:918:19: warning: Either the condition 'hash_table[h]' is redundant or there is possible null pointer dereference: hlist. [nullPointerRedundantCheck]
+  unsigned char **hlist = hash_table[h];
+                  ^
+sod_img_writer.h:927:17: note: Assuming that condition 'hash_table[h]' is not redundant
+  if (hash_table[h] && stbiw__sbn(hash_table[h]) == 2 * quality) {
+                ^
+sod_img_writer.h:918:19: note: Null pointer dereference
+  unsigned char **hlist = hash_table[h];
+                  ^
+sod_img_writer.h:988:3: warning: Either the condition '(out)==0' is redundant or there is possible null pointer dereference: out. [nullPointerRedundantCheck]
+  stbiw__sbpush(out, STBIW_UCHAR(s2 >> 8));
+  ^
+sod_img_writer.h:989:3: note: Assuming that condition '(out)==0' is not redundant
+  stbiw__sbpush(out, STBIW_UCHAR(s2));
+  ^
+sod_img_writer.h:988:3: note: Null pointer dereference
+  stbiw__sbpush(out, STBIW_UCHAR(s2 >> 8));
+  ^
+sod_img_writer.h:989:3: warning: Either the condition '(out)==0' is redundant or there is possible null pointer dereference: out. [nullPointerRedundantCheck]
+  stbiw__sbpush(out, STBIW_UCHAR(s2));
+  ^
+sod_img_writer.h:990:3: note: Assuming that condition '(out)==0' is not redundant
+  stbiw__sbpush(out, STBIW_UCHAR(s1 >> 8));
+  ^
+sod_img_writer.h:989:3: note: Null pointer dereference
+  stbiw__sbpush(out, STBIW_UCHAR(s2));
+  ^
+sod_img_writer.h:990:3: warning: Either the condition '(out)==0' is redundant or there is possible null pointer dereference: out. [nullPointerRedundantCheck]
+  stbiw__sbpush(out, STBIW_UCHAR(s1 >> 8));
+  ^
+sod_img_writer.h:991:3: note: Assuming that condition '(out)==0' is not redundant
+  stbiw__sbpush(out, STBIW_UCHAR(s1));
+  ^
+sod_img_writer.h:990:3: note: Null pointer dereference
+  stbiw__sbpush(out, STBIW_UCHAR(s1 >> 8));
+  ^
+sod_img_writer.h:905:2: warning: Either the condition '(out)==0' is redundant or there is overflow in pointer subtraction. [nullPointerArithmeticRedundantCheck]
+ stbiw__sbpush(out, 0x78);   // DEFLATE 32K window
+ ^
+sod_img_writer.h:906:2: note: Assuming that condition '(out)==0' is not redundant
+ stbiw__sbpush(out, 0x5e);   // FLEVEL = 1
+ ^
+sod_img_writer.h:905:2: note: Null pointer subtraction
+ stbiw__sbpush(out, 0x78);   // DEFLATE 32K window
+ ^
+sod_img_writer.h:988:3: warning: Either the condition '(out)==0' is redundant or there is overflow in pointer subtraction. [nullPointerArithmeticRedundantCheck]
+  stbiw__sbpush(out, STBIW_UCHAR(s2 >> 8));
+  ^
+sod_img_writer.h:989:3: note: Assuming that condition '(out)==0' is not redundant
+  stbiw__sbpush(out, STBIW_UCHAR(s2));
+  ^
+sod_img_writer.h:988:3: note: Null pointer subtraction
+  stbiw__sbpush(out, STBIW_UCHAR(s2 >> 8));
+  ^
+sod_img_writer.h:989:3: warning: Either the condition '(out)==0' is redundant or there is overflow in pointer subtraction. [nullPointerArithmeticRedundantCheck]
+  stbiw__sbpush(out, STBIW_UCHAR(s2));
+  ^
+sod_img_writer.h:990:3: note: Assuming that condition '(out)==0' is not redundant
+  stbiw__sbpush(out, STBIW_UCHAR(s1 >> 8));
+  ^
+sod_img_writer.h:989:3: note: Null pointer subtraction
+  stbiw__sbpush(out, STBIW_UCHAR(s2));
+  ^
+sod_img_writer.h:990:3: warning: Either the condition '(out)==0' is redundant or there is overflow in pointer subtraction. [nullPointerArithmeticRedundantCheck]
+  stbiw__sbpush(out, STBIW_UCHAR(s1 >> 8));
+  ^
+sod_img_writer.h:991:3: note: Assuming that condition '(out)==0' is not redundant
+  stbiw__sbpush(out, STBIW_UCHAR(s1));
+  ^
+sod_img_writer.h:990:3: note: Null pointer subtraction
+  stbiw__sbpush(out, STBIW_UCHAR(s1 >> 8));
+  ^
+sod.c:13246:19: portability: Casting between const signed char * and float * which have an incompatible binary data representation. [invalidPointerCast]
+  float *aLeafs = (float *)(zTree + ((1 << pModel->depth) - 1) * sizeof(int));
+                  ^
+sod.c:13249:18: portability: Casting between const signed char * and float * which have an incompatible binary data representation. [invalidPointerCast]
+  tree_thresh = *(float *)(zTree + ((1 << pModel->depth) - 1) * sizeof(int) + (1 << pModel->depth) * sizeof(float));
+                 ^
+sod_img_reader.h:6933:4: style: Redundant initialization for 'c'. The initialized value is overwritten before it is read. [redundantInitialization]
+ c = (char)stbi__get8(z);
+   ^
+sod_img_reader.h:6931:9: note: c is initialized
+ char c = '\0';
+        ^
+sod_img_reader.h:6933:4: note: c is overwritten
+ c = (char)stbi__get8(z);
+   ^
+sod.c:8068:6: style: Same expression used in consecutive assignments of 'w_offset' and 'h_offset'. [duplicateAssignExpression]
+ int w_offset = -l.pad;
+     ^
+sod.c:8069:6: note: Same expression used in consecutive assignments of 'w_offset' and 'h_offset'.
+ int h_offset = -l.pad;
+     ^
+sod.c:8068:6: note: Same expression used in consecutive assignments of 'w_offset' and 'h_offset'.
+ int w_offset = -l.pad;
+     ^
+sod_img_reader.h:1109:9: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ return stbi__errpuc("unknown image type", "Image not of any known type, or corrupt");
+        ^
+sod_img_reader.h:1119:30: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (reduced == NULL) return stbi__errpuc("outofmem", "Out of memory");
+                             ^
+sod_img_reader.h:1135:47: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (enlarged == NULL) return (stbi__uint16 *)stbi__errpuc("outofmem", "Out of memory");
+                                              ^
+sod_img_reader.h:1288:17: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!f) return stbi__errpuc("can't fopen", "Unable to open file");
+                ^
+sod_img_reader.h:1324:28: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!f) return (stbi_us *)stbi__errpuc("can't fopen", "Unable to open file");
+                           ^
+sod_img_reader.h:1393:9: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ return stbi__errpf("unknown image type", "Image not of any known type, or corrupt");
+        ^
+sod_img_reader.h:1415:17: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!f) return stbi__errpf("can't fopen", "Unable to open file");
+                ^
+sod_img_reader.h:1683:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("outofmem", "Out of memory");
+         ^
+sod_img_reader.h:1740:26: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return (stbi__uint16 *)stbi__errpuc("outofmem", "Out of memory");
+                         ^
+sod_img_reader.h:1781:48: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (output == NULL) { STBI_FREE(data); return stbi__errpf("outofmem", "Out of memory"); }
+                                               ^
+sod_img_reader.h:1807:48: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (output == NULL) { STBI_FREE(data); return stbi__errpuc("outofmem", "Out of memory"); }
+                                               ^
+sod_img_reader.h:3765:43: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (req_comp < 0 || req_comp > 4) return stbi__errpuc("bad req_comp", "Internal error");
+                                          ^
+sod_img_reader.h:3795:65: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+   if (!z->img_comp[k].linebuf) { stbi__cleanup_jpeg(z); return stbi__errpuc("outofmem", "Out of memory"); }
+                                                                ^
+sod_img_reader.h:3813:48: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  if (!output) { stbi__cleanup_jpeg(z); return stbi__errpuc("outofmem", "Out of memory"); }
+                                               ^
+sod_img_reader.h:5130:43: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (req_comp < 0 || req_comp > 4) return stbi__errpuc("bad req_comp", "Internal error");
+                                          ^
+sod_img_reader.h:5287:59: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (stbi__get8(s) != 'B' || stbi__get8(s) != 'M') return stbi__errpuc("not BMP", "Corrupt BMP");
+                                                          ^
+sod_img_reader.h:5296:78: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (hsz != 12 && hsz != 40 && hsz != 56 && hsz != 108 && hsz != 124) return stbi__errpuc("unknown BMP", "BMP type not supported: unknown");
+                                                                             ^
+sod_img_reader.h:5305:36: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (stbi__get16le(s) != 1) return stbi__errpuc("bad BMP", "bad BMP");
+                                   ^
+sod_img_reader.h:5309:46: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  if (compress == 1 || compress == 2) return stbi__errpuc("BMP RLE", "BMP type not supported: RLE");
+                                             ^
+sod_img_reader.h:5345:14: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+      return stbi__errpuc("bad BMP", "bad BMP");
+             ^
+sod_img_reader.h:5349:13: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+     return stbi__errpuc("bad BMP", "bad BMP");
+            ^
+sod_img_reader.h:5355:12: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    return stbi__errpuc("bad BMP", "bad BMP");
+           ^
+sod_img_reader.h:5421:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("too large", "Corrupt BMP");
+         ^
+sod_img_reader.h:5424:19: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!out) return stbi__errpuc("outofmem", "Out of memory");
+                  ^
+sod_img_reader.h:5427:59: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  if (psize == 0 || psize > 256) { STBI_FREE(out); return stbi__errpuc("invalid", "Corrupt BMP"); }
+                                                          ^
+sod_img_reader.h:5439:33: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  else { STBI_FREE(out); return stbi__errpuc("bad bpp", "Corrupt BMP"); }
+                                ^
+sod_img_reader.h:5499:52: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+   if (!mr || !mg || !mb) { STBI_FREE(out); return stbi__errpuc("bad masks", "Corrupt BMP"); }
+                                                   ^
+sod_img_reader.h:5746:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("bad format", "Can't find out TGA pixelformat");
+         ^
+sod_img_reader.h:5754:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("too large", "Corrupt TGA");
+         ^
+sod_img_reader.h:5757:24: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!tga_data) return stbi__errpuc("outofmem", "Out of memory");
+                       ^
+sod_img_reader.h:5779:12: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    return stbi__errpuc("outofmem", "Out of memory");
+           ^
+sod_img_reader.h:5792:12: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    return stbi__errpuc("bad palette", "Corrupt TGA");
+           ^
+sod_img_reader.h:5970:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("not PSD", "Corrupt PSD image");
+         ^
+sod_img_reader.h:5974:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("wrong version", "Unsupported version of PSD image");
+         ^
+sod_img_reader.h:5982:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("wrong channel count", "Unsupported number of channels in PSD image");
+         ^
+sod_img_reader.h:5991:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("unsupported bit depth", "PSD bit depth is not 8 or 16 bit");
+         ^
+sod_img_reader.h:6004:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("wrong color format", "PSD is not in RGB color format");
+         ^
+sod_img_reader.h:6021:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("bad compression", "PSD has an unknown compression format");
+         ^
+sod_img_reader.h:6025:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("too large", "Corrupt PSD");
+         ^
+sod_img_reader.h:6036:19: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!out) return stbi__errpuc("outofmem", "Out of memory");
+                  ^
+sod_img_reader.h:6070:13: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+     return stbi__errpuc("corrupt", "bad RLE data");
+            ^
+sod_img_reader.h:6210:32: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+   if (stbi__at_eof(s)) return stbi__errpuc("bad file", "PIC file too short");
+                               ^
+sod_img_reader.h:6238:11: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+   return stbi__errpuc("bad format", "too many packets");
+          ^
+sod_img_reader.h:6249:40: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  if (stbi__at_eof(s))          return stbi__errpuc("bad file", "file too short (reading packets)");
+                                       ^
+sod_img_reader.h:6250:34: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  if (packet->size != 8)  return stbi__errpuc("bad format", "packet isn't 8bpp");
+                                 ^
+sod_img_reader.h:6264:12: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    return stbi__errpuc("bad format", "packet has bad compression type");
+           ^
+sod_img_reader.h:6283:36: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+     if (stbi__at_eof(s))   return stbi__errpuc("bad file", "file too short (pure read count)");
+                                   ^
+sod_img_reader.h:6301:35: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+     if (stbi__at_eof(s))  return stbi__errpuc("bad file", "file too short (mixed read count)");
+                                  ^
+sod_img_reader.h:6311:15: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+       return stbi__errpuc("bad file", "scanline overrun");
+              ^
+sod_img_reader.h:6321:32: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+      if (count > left) return stbi__errpuc("bad file", "scanline overrun");
+                               ^
+sod_img_reader.h:6351:31: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (stbi__at_eof(s))  return stbi__errpuc("bad file", "file too short (pic header)");
+                              ^
+sod_img_reader.h:6352:49: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!stbi__mad3sizes_valid(x, y, 4, 0)) return stbi__errpuc("too large", "PIC image too large to decode");
+                                                ^
+sod_img_reader.h:6578:13: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+     return stbi__errpuc("no clear code", "Corrupt GIF");
+            ^
+sod_img_reader.h:6584:14: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+      return stbi__errpuc("too many codes", "Corrupt GIF");
+             ^
+sod_img_reader.h:6592:13: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+     return stbi__errpuc("illegal code in raster", "Corrupt GIF");
+            ^
+sod_img_reader.h:6604:12: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    return stbi__errpuc("illegal code in raster", "Corrupt GIF");
+           ^
+sod_img_reader.h:6625:11: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+   return stbi__errpuc("too large", "GIF image is too large");
+          ^
+sod_img_reader.h:6631:11: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+   return stbi__errpuc("outofmem", "Out of memory");
+          ^
+sod_img_reader.h:6692:12: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    return stbi__errpuc("bad Image Descriptor", "Corrupt GIF");
+           ^
+sod_img_reader.h:6728:12: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    return stbi__errpuc("missing color table", "Corrupt GIF");
+           ^
+sod_img_reader.h:6789:11: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+   return stbi__errpuc("unknown code", "Corrupt GIF");
+          ^
+sod_img_reader.h:6824:14: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+      return stbi__errpuc("outofmem", "Out of memory");
+             ^
+sod_img_reader.h:6862:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("not GIF", "Image was not as a gif type.");
+         ^
+sod_img_reader.h:6995:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpf("not HDR", "Corrupt HDR image");
+         ^
+sod_img_reader.h:7004:24: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!valid)    return stbi__errpf("unsupported format", "Unsupported HDR format");
+                       ^
+sod_img_reader.h:7009:40: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (strncmp(token, "-Y ", 3))  return stbi__errpf("unsupported data layout", "Unsupported HDR format");
+                                       ^
+sod_img_reader.h:7013:40: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (strncmp(token, "+X ", 3))  return stbi__errpf("unsupported data layout", "Unsupported HDR format");
+                                       ^
+sod_img_reader.h:7024:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpf("too large", "HDR image is too large");
+         ^
+sod_img_reader.h:7029:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpf("outofmem", "Out of memory");
+         ^
+sod_img_reader.h:7068:73: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+   if (len != width) { STBI_FREE(hdr_data); STBI_FREE(scanline); return stbi__errpf("invalid decoded scanline length", "corrupt HDR"); }
+                                                                        ^
+sod_img_reader.h:7073:13: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+     return stbi__errpf("outofmem", "Out of memory");
+            ^
+sod_img_reader.h:7086:77: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+      if (count > nleft) { STBI_FREE(hdr_data); STBI_FREE(scanline); return stbi__errpf("corrupt", "bad RLE data in HDR"); }
+                                                                            ^
+sod_img_reader.h:7092:77: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+      if (count > nleft) { STBI_FREE(hdr_data); STBI_FREE(scanline); return stbi__errpf("corrupt", "bad RLE data in HDR"); }
+                                                                            ^
+sod_img_reader.h:7338:10: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+  return stbi__errpuc("too large", "PNM too large");
+         ^
+sod_img_reader.h:7341:19: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+ if (!out) return stbi__errpuc("outofmem", "Out of memory");
+                  ^
+sod.c:4567:6: style: The scope of the variable 'w_offset' can be reduced. [variableScope]
+ int w_offset, h_offset, c_im, im_row, im_col, col_index;
+     ^
+sod.c:4567:16: style: The scope of the variable 'h_offset' can be reduced. [variableScope]
+ int w_offset, h_offset, c_im, im_row, im_col, col_index;
+               ^
+sod.c:4567:26: style: The scope of the variable 'c_im' can be reduced. [variableScope]
+ int w_offset, h_offset, c_im, im_row, im_col, col_index;
+                         ^
+sod.c:4606:21: style: The scope of the variable 'k' can be reduced. [variableScope]
+ register int i, j, k;
+                    ^
+sod.c:4686:13: style: The scope of the variable 'j' can be reduced. [variableScope]
+ int i = 0, j;
+            ^
+sod.c:6888:6: style: The scope of the variable 'b' can be reduced. [variableScope]
+ int b;
+     ^
+sod.c:7085:6: style: The scope of the variable 'i' can be reduced. [variableScope]
+ int i, n;
+     ^
+sod.c:7085:9: style: The scope of the variable 'n' can be reduced. [variableScope]
+ int i, n;
+        ^
+sod.c:7270:11: style: The scope of the variable 'maxp' can be reduced. [variableScope]
+    float maxp = 0;
+          ^
+sod.c:7271:9: style: The scope of the variable 'maxi' can be reduced. [variableScope]
+    int maxi = 0;
+        ^
+sod.c:7493:9: style: The scope of the variable 'j' can be reduced. [variableScope]
+ int i, j;
+        ^
+sod.c:9237:6: style: The scope of the variable 'i' can be reduced. [variableScope]
+ int i;
+     ^
+sod.c:9422:7: style: The scope of the variable 'i' can be reduced. [variableScope]
+  int i, j, k;
+      ^
+sod.c:9422:10: style: The scope of the variable 'j' can be reduced. [variableScope]
+  int i, j, k;
+         ^
+sod.c:9422:13: style: The scope of the variable 'k' can be reduced. [variableScope]
+  int i, j, k;
+            ^
+sod.c:9546:7: style: The scope of the variable 'x' can be reduced. [variableScope]
+  int x, y, w, h;
+      ^
+sod.c:9546:10: style: The scope of the variable 'y' can be reduced. [variableScope]
+  int x, y, w, h;
+         ^
+sod.c:9606:7: style: The scope of the variable 'x' can be reduced. [variableScope]
+  int x, y, w, h;
+      ^
+sod.c:9606:10: style: The scope of the variable 'y' can be reduced. [variableScope]
+  int x, y, w, h;
+         ^
+sod.c:10244:6: style: The scope of the variable 'x' can be reduced. [variableScope]
+ int x, y, c;
+     ^
+sod.c:10244:9: style: The scope of the variable 'y' can be reduced. [variableScope]
+ int x, y, c;
+        ^
+sod.c:10244:12: style: The scope of the variable 'c' can be reduced. [variableScope]
+ int x, y, c;
+           ^
+sod.c:10267:6: style: The scope of the variable 'x' can be reduced. [variableScope]
+ int x, y, c;
+     ^
+sod.c:10267:9: style: The scope of the variable 'y' can be reduced. [variableScope]
+ int x, y, c;
+        ^
+sod.c:10267:12: style: The scope of the variable 'c' can be reduced. [variableScope]
+ int x, y, c;
+           ^
+sod.c:10344:6: style: The scope of the variable 'n' can be reduced. [variableScope]
+ int n, m;
+     ^
+sod.c:10344:9: style: The scope of the variable 'm' can be reduced. [variableScope]
+ int n, m;
+        ^
+sod.c:10345:6: style: The scope of the variable 'c' can be reduced. [variableScope]
+ int c;
+     ^
+sod.c:10649:6: style: The scope of the variable 'y_off' can be reduced. [variableScope]
+ int y_off, x_off;
+     ^
+sod.c:10649:13: style: The scope of the variable 'x_off' can be reduced. [variableScope]
+ int y_off, x_off;
+            ^
+sod.c:10782:12: style: The scope of the variable 'x' can be reduced. [variableScope]
+ int w, h, x, y, max_x, max_y;
+           ^
+sod.c:10782:15: style: The scope of the variable 'y' can be reduced. [variableScope]
+ int w, h, x, y, max_x, max_y;
+              ^
+sod.c:10782:18: style: The scope of the variable 'max_x' can be reduced. [variableScope]
+ int w, h, x, y, max_x, max_y;
+                 ^
+sod.c:10782:25: style: The scope of the variable 'max_y' can be reduced. [variableScope]
+ int w, h, x, y, max_x, max_y;
+                        ^
+sod.c:11130:6: style: The scope of the variable 'i' can be reduced. [variableScope]
+ int i, j;
+     ^
+sod.c:11130:9: style: The scope of the variable 'j' can be reduced. [variableScope]
+ int i, j;
+        ^
+sod.c:11192:6: style: The scope of the variable 'f' can be reduced. [variableScope]
+ int f, ddF_x, ddF_y, x, y;
+     ^
+sod.c:11192:9: style: The scope of the variable 'ddF_x' can be reduced. [variableScope]
+ int f, ddF_x, ddF_y, x, y;
+        ^
+sod.c:11192:16: style: The scope of the variable 'ddF_y' can be reduced. [variableScope]
+ int f, ddF_x, ddF_y, x, y;
+               ^
+sod.c:11192:23: style: The scope of the variable 'x' can be reduced. [variableScope]
+ int f, ddF_x, ddF_y, x, y;
+                      ^
+sod.c:11192:26: style: The scope of the variable 'y' can be reduced. [variableScope]
+ int f, ddF_x, ddF_y, x, y;
+                         ^
+sod.c:11315:43: style: The scope of the variable 'e2' can be reduced. [variableScope]
+ int x1, x2, y1, y2, dx, dy, err, sx, sy, e2;
+                                          ^
+sod.c:11383:6: style: The scope of the variable 'i' can be reduced. [variableScope]
+ int i, k;
+     ^
+sod.c:11383:9: style: The scope of the variable 'k' can be reduced. [variableScope]
+ int i, k;
+        ^
+sod_img_reader.h:2176:6: style: The scope of the variable 'diff' can be reduced. [variableScope]
+ int diff, dc;
+     ^
+sod_img_reader.h:2176:12: style: The scope of the variable 'dc' can be reduced. [variableScope]
+ int diff, dc;
+           ^
+sod_img_reader.h:2177:6: style: The scope of the variable 't' can be reduced. [variableScope]
+ int t;
+     ^
+sod_img_reader.h:3187:16: style: The scope of the variable 'q' can be reduced. [variableScope]
+ int Lf, p, i, q, h_max = 1, v_max = 1, c;
+               ^
+sod_img_reader.h:3402:9: style: The scope of the variable 't0' can be reduced. [variableScope]
+ int i, t0, t1;
+        ^
+sod_img_reader.h:4128:9: style: The scope of the variable 's' can be reduced. [variableScope]
+ int b, s;
+        ^
+sod_img_reader.h:4340:13: style: The scope of the variable 'type' can be reduced. [variableScope]
+ int final, type;
+            ^
+sod_img_reader.h:4769:7: style: The scope of the variable 'i' can be reduced. [variableScope]
+  int i, j, x, y;
+      ^
+sod_img_reader.h:4769:10: style: The scope of the variable 'j' can be reduced. [variableScope]
+  int i, j, x, y;
+         ^
+sod_img_reader.h:5587:6: style: The scope of the variable 'sz' can be reduced. [variableScope]
+ int sz, tga_colormap_type;
+     ^
+sod_img_reader.h:5724:9: style: The scope of the variable 'j' can be reduced. [variableScope]
+ int i, j;
+        ^
+sod_img_reader.h:5726:6: style: The scope of the variable 'RLE_count' can be reduced. [variableScope]
+ int RLE_count = 0;
+     ^
+sod_img_reader.h:5727:6: style: The scope of the variable 'RLE_repeating' can be reduced. [variableScope]
+ int RLE_repeating = 0;
+     ^
+sod_img_reader.h:5728:6: style: The scope of the variable 'read_next_pixel' can be reduced. [variableScope]
+ int read_next_pixel = 1;
+     ^
+sod_img_reader.h:5920:20: style: The scope of the variable 'len' can be reduced. [variableScope]
+ int count, nleft, len;
+                   ^
+sod_img_reader.h:6614:6: style: The scope of the variable 'dispose' can be reduced. [variableScope]
+ int dispose;
+     ^
+sod.c:13561:6: style: The scope of the variable 'i' can be reduced. [variableScope]
+ int i, j, k;
+     ^
+sod.c:13561:9: style: The scope of the variable 'j' can be reduced. [variableScope]
+ int i, j, k;
+        ^
+sod.c:13561:12: style: The scope of the variable 'k' can be reduced. [variableScope]
+ int i, j, k;
+           ^
+sod.c:13592:6: style: The scope of the variable 'i' can be reduced. [variableScope]
+ int i, j, k;
+     ^
+sod.c:13592:9: style: The scope of the variable 'j' can be reduced. [variableScope]
+ int i, j, k;
+        ^
+sod.c:13592:12: style: The scope of the variable 'k' can be reduced. [variableScope]
+ int i, j, k;
+           ^
+sod_img_writer.h:413:41: style: The scope of the variable 'px' can be reduced. [variableScope]
+ unsigned char bg[3] = { 255, 0, 255 }, px[3];
+                                        ^
+sod_img_writer.h:414:6: style: The scope of the variable 'k' can be reduced. [variableScope]
+ int k;
+     ^
+sod_img_writer.h:1129:55: style: The scope of the variable 'est' can be reduced. [variableScope]
+   int best_filter = 0, best_filter_val = 0x7fffffff, est, i;
+                                                      ^
+sod.c:291:23: style: Redundant pointer operation on 'pBlob' - it's already a pointer. [redundantPointerOp]
+ rc = BlobPrepareGrow(&(*pBlob), &nSize);
+                      ^
+sod.c:1072:20: style: Redundant pointer operation on 'pBlob' - it's already a pointer. [redundantPointerOp]
+ rc = SyBlobAppend(&(*pBlob), zBuf, (size_t)nLen);
+                   ^
+sod.c:1073:2: style: Redundant pointer operation on 'pBlob' - it's already a pointer. [redundantPointerOp]
+ SyBlobNullAppend(&(*pBlob));
+ ^
+sod.c:9213:23: style: Redundant pointer operation on 'pImg' - it's already a pointer. [redundantPointerOp]
+ sod_md_alloc_dyn_img(&(*pImg), w, h, c);
+                      ^
+sod_img_reader.h:2072:6: error: Shifting by a negative value is undefined behaviour [shiftNegative]
+ k = stbi_lrot(j->code_buffer, n);
+     ^
+sod_img_reader.h:5272:4: error: Shifting by a negative value is undefined behaviour [shiftNegative]
+ v >>= (8 - bits);
+   ^
+sod_img_reader.h:1284:71: style:inconclusive: Function 'stbi_load' argument 4 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF stbi_uc *stbi_load(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                      ^
+sod_img_reader.h:396:72: note: Function 'stbi_load' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF stbi_uc *stbi_load(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                       ^
+sod_img_reader.h:1284:71: note: Function 'stbi_load' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF stbi_uc *stbi_load(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                      ^
+sod_img_reader.h:1284:81: style:inconclusive: Function 'stbi_load' argument 5 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF stbi_uc *stbi_load(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                                ^
+sod_img_reader.h:396:94: note: Function 'stbi_load' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF stbi_uc *stbi_load(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                             ^
+sod_img_reader.h:1284:81: note: Function 'stbi_load' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF stbi_uc *stbi_load(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                                ^
+sod_img_reader.h:1294:68: style:inconclusive: Function 'stbi_load_from_file' argument 4 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                   ^
+sod_img_reader.h:397:69: note: Function 'stbi_load_from_file' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                    ^
+sod_img_reader.h:1294:68: note: Function 'stbi_load_from_file' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                   ^
+sod_img_reader.h:1294:78: style:inconclusive: Function 'stbi_load_from_file' argument 5 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                             ^
+sod_img_reader.h:397:91: note: Function 'stbi_load_from_file' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                          ^
+sod_img_reader.h:1294:78: note: Function 'stbi_load_from_file' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                             ^
+sod_img_reader.h:1307:76: style:inconclusive: Function 'stbi_load_from_file_16' argument 4 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF stbi__uint16 *stbi_load_from_file_16(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                           ^
+sod_img_reader.h:419:72: note: Function 'stbi_load_from_file_16' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF stbi_us *stbi_load_from_file_16(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                       ^
+sod_img_reader.h:1307:76: note: Function 'stbi_load_from_file_16' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF stbi__uint16 *stbi_load_from_file_16(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                           ^
+sod_img_reader.h:1307:86: style:inconclusive: Function 'stbi_load_from_file_16' argument 5 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF stbi__uint16 *stbi_load_from_file_16(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                                     ^
+sod_img_reader.h:419:94: note: Function 'stbi_load_from_file_16' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF stbi_us *stbi_load_from_file_16(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                             ^
+sod_img_reader.h:1307:86: note: Function 'stbi_load_from_file_16' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF stbi__uint16 *stbi_load_from_file_16(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                                     ^
+sod_img_reader.h:1320:74: style:inconclusive: Function 'stbi_load_16' argument 4 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF stbi_us *stbi_load_16(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                         ^
+sod_img_reader.h:418:75: note: Function 'stbi_load_16' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF stbi_us *stbi_load_16(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                          ^
+sod_img_reader.h:1320:74: note: Function 'stbi_load_16' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF stbi_us *stbi_load_16(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                         ^
+sod_img_reader.h:1320:84: style:inconclusive: Function 'stbi_load_16' argument 5 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF stbi_us *stbi_load_16(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                                   ^
+sod_img_reader.h:418:97: note: Function 'stbi_load_16' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF stbi_us *stbi_load_16(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                                ^
+sod_img_reader.h:1320:84: note: Function 'stbi_load_16' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF stbi_us *stbi_load_16(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                                   ^
+sod_img_reader.h:1347:93: style:inconclusive: Function 'stbi_load_from_memory' argument 5 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp)
+                                                                                            ^
+sod_img_reader.h:392:104: note: Function 'stbi_load_from_memory' argument 5 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF stbi_uc *stbi_load_from_memory(stbi_uc           const *buffer, int len, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                                       ^
+sod_img_reader.h:1347:93: note: Function 'stbi_load_from_memory' argument 5 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp)
+                                                                                            ^
+sod_img_reader.h:1347:103: style:inconclusive: Function 'stbi_load_from_memory' argument 6 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp)
+                                                                                                      ^
+sod_img_reader.h:392:126: note: Function 'stbi_load_from_memory' argument 6 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF stbi_uc *stbi_load_from_memory(stbi_uc           const *buffer, int len, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                                                             ^
+sod_img_reader.h:1347:103: note: Function 'stbi_load_from_memory' argument 6 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp)
+                                                                                                      ^
+sod_img_reader.h:1354:107: style:inconclusive: Function 'stbi_load_from_callbacks' argument 5 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF stbi_uc *stbi_load_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp)
+                                                                                                          ^
+sod_img_reader.h:393:108: note: Function 'stbi_load_from_callbacks' argument 5 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF stbi_uc *stbi_load_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                                           ^
+sod_img_reader.h:1354:107: note: Function 'stbi_load_from_callbacks' argument 5 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF stbi_uc *stbi_load_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp)
+                                                                                                          ^
+sod_img_reader.h:1354:117: style:inconclusive: Function 'stbi_load_from_callbacks' argument 6 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF stbi_uc *stbi_load_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp)
+                                                                                                                    ^
+sod_img_reader.h:393:130: note: Function 'stbi_load_from_callbacks' argument 6 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF stbi_uc *stbi_load_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                                                                 ^
+sod_img_reader.h:1354:117: note: Function 'stbi_load_from_callbacks' argument 6 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF stbi_uc *stbi_load_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp)
+                                                                                                                    ^
+sod_img_reader.h:1396:92: style:inconclusive: Function 'stbi_loadf_from_memory' argument 5 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF float *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp)
+                                                                                           ^
+sod_img_reader.h:427:93: note: Function 'stbi_loadf_from_memory' argument 5 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF float *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                            ^
+sod_img_reader.h:1396:92: note: Function 'stbi_loadf_from_memory' argument 5 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF float *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp)
+                                                                                           ^
+sod_img_reader.h:1396:102: style:inconclusive: Function 'stbi_loadf_from_memory' argument 6 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF float *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp)
+                                                                                                     ^
+sod_img_reader.h:427:115: note: Function 'stbi_loadf_from_memory' argument 6 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF float *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                                                  ^
+sod_img_reader.h:1396:102: note: Function 'stbi_loadf_from_memory' argument 6 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF float *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp)
+                                                                                                     ^
+sod_img_reader.h:1403:106: style:inconclusive: Function 'stbi_loadf_from_callbacks' argument 5 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF float *stbi_loadf_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp)
+                                                                                                         ^
+sod_img_reader.h:428:107: note: Function 'stbi_loadf_from_callbacks' argument 5 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF float *stbi_loadf_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                                          ^
+sod_img_reader.h:1403:106: note: Function 'stbi_loadf_from_callbacks' argument 5 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF float *stbi_loadf_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp)
+                                                                                                         ^
+sod_img_reader.h:1403:116: style:inconclusive: Function 'stbi_loadf_from_callbacks' argument 6 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF float *stbi_loadf_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp)
+                                                                                                                   ^
+sod_img_reader.h:428:129: note: Function 'stbi_loadf_from_callbacks' argument 6 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF float *stbi_loadf_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                                                                ^
+sod_img_reader.h:1403:116: note: Function 'stbi_loadf_from_callbacks' argument 6 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF float *stbi_loadf_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp)
+                                                                                                                   ^
+sod_img_reader.h:1411:70: style:inconclusive: Function 'stbi_loadf' argument 4 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF float *stbi_loadf(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                     ^
+sod_img_reader.h:431:71: note: Function 'stbi_loadf' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF float *stbi_loadf(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                      ^
+sod_img_reader.h:1411:70: note: Function 'stbi_loadf' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF float *stbi_loadf(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                     ^
+sod_img_reader.h:1411:80: style:inconclusive: Function 'stbi_loadf' argument 5 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF float *stbi_loadf(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                               ^
+sod_img_reader.h:431:93: note: Function 'stbi_loadf' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF float *stbi_loadf(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                            ^
+sod_img_reader.h:1411:80: note: Function 'stbi_loadf' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF float *stbi_loadf(char const *filename, int *x, int *y, int *comp, int req_comp)
+                                                                               ^
+sod_img_reader.h:1421:67: style:inconclusive: Function 'stbi_loadf_from_file' argument 4 names different: declaration 'channels_in_file' definition 'comp'. [funcArgNamesDifferent]
+STBIDEF float *stbi_loadf_from_file(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                  ^
+sod_img_reader.h:432:68: note: Function 'stbi_loadf_from_file' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+ STBIDEF float *stbi_loadf_from_file(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                   ^
+sod_img_reader.h:1421:67: note: Function 'stbi_loadf_from_file' argument 4 names different: declaration 'channels_in_file' definition 'comp'.
+STBIDEF float *stbi_loadf_from_file(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                  ^
+sod_img_reader.h:1421:77: style:inconclusive: Function 'stbi_loadf_from_file' argument 5 names different: declaration 'desired_channels' definition 'req_comp'. [funcArgNamesDifferent]
+STBIDEF float *stbi_loadf_from_file(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                            ^
+sod_img_reader.h:432:90: note: Function 'stbi_loadf_from_file' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+ STBIDEF float *stbi_loadf_from_file(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels);
+                                                                                         ^
+sod_img_reader.h:1421:77: note: Function 'stbi_loadf_from_file' argument 5 names different: declaration 'desired_channels' definition 'req_comp'.
+STBIDEF float *stbi_loadf_from_file(FILE *f, int *x, int *y, int *comp, int req_comp)
+                                                                            ^
+sod_img_reader.h:6338:52: style:inconclusive: Function 'stbi__pic_load' argument 2 names different: declaration 'x' definition 'px'. [funcArgNamesDifferent]
+static void *stbi__pic_load(stbi__context *s, int *px, int *py, int *comp, int req_comp, stbi__result_info *ri)
+                                                   ^
+sod_img_reader.h:894:55: note: Function 'stbi__pic_load' argument 2 names different: declaration 'x' definition 'px'.
+static void    *stbi__pic_load(stbi__context *s, int *x, int *y, int *comp, int req_comp, stbi__result_info *ri);
+                                                      ^
+sod_img_reader.h:6338:52: note: Function 'stbi__pic_load' argument 2 names different: declaration 'x' definition 'px'.
+static void *stbi__pic_load(stbi__context *s, int *px, int *py, int *comp, int req_comp, stbi__result_info *ri)
+                                                   ^
+sod_img_reader.h:6338:61: style:inconclusive: Function 'stbi__pic_load' argument 3 names different: declaration 'y' definition 'py'. [funcArgNamesDifferent]
+static void *stbi__pic_load(stbi__context *s, int *px, int *py, int *comp, int req_comp, stbi__result_info *ri)
+                                                            ^
+sod_img_reader.h:894:63: note: Function 'stbi__pic_load' argument 3 names different: declaration 'y' definition 'py'.
+static void    *stbi__pic_load(stbi__context *s, int *x, int *y, int *comp, int req_comp, stbi__result_info *ri);
+                                                              ^
+sod_img_reader.h:6338:61: note: Function 'stbi__pic_load' argument 3 names different: declaration 'y' definition 'py'.
+static void *stbi__pic_load(stbi__context *s, int *px, int *py, int *comp, int req_comp, stbi__result_info *ri)
+                                                            ^
+sod_img_reader.h:7532:63: style:inconclusive: Function 'stbi_info_from_callbacks' argument 1 names different: declaration 'clbk' definition 'c'. [funcArgNamesDifferent]
+STBIDEF int stbi_info_from_callbacks(stbi_io_callbacks const *c, void *user, int *x, int *y, int *comp)
+                                                              ^
+sod_img_reader.h:464:69: note: Function 'stbi_info_from_callbacks' argument 1 names different: declaration 'clbk' definition 'c'.
+ STBIDEF int      stbi_info_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp);
+                                                                    ^
+sod_img_reader.h:7532:63: note: Function 'stbi_info_from_callbacks' argument 1 names different: declaration 'clbk' definition 'c'.
+STBIDEF int stbi_info_from_callbacks(stbi_io_callbacks const *c, void *user, int *x, int *y, int *comp)
+                                                              ^
+sod_img_reader.h:7546:68: style:inconclusive: Function 'stbi_is_16_bit_from_callbacks' argument 1 names different: declaration 'clbk' definition 'c'. [funcArgNamesDifferent]
+STBIDEF int stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *c, void *user)
+                                                                   ^
+sod_img_reader.h:466:74: note: Function 'stbi_is_16_bit_from_callbacks' argument 1 names different: declaration 'clbk' definition 'c'.
+ STBIDEF int      stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *clbk, void *user);
+                                                                         ^
+sod_img_reader.h:7546:68: note: Function 'stbi_is_16_bit_from_callbacks' argument 1 names different: declaration 'clbk' definition 'c'.
+STBIDEF int stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *c, void *user)
+                                                                   ^
+sod_img_writer.h:277:49: style:inconclusive: Function 'stbi_flip_vertically_on_write' argument 1 names different: declaration 'flip_boolean' definition 'flag'. [funcArgNamesDifferent]
+STBIWDEF void stbi_flip_vertically_on_write(int flag)
+                                                ^
+sod_img_writer.h:210:49: note: Function 'stbi_flip_vertically_on_write' argument 1 names different: declaration 'flip_boolean' definition 'flag'.
+STBIWDEF void stbi_flip_vertically_on_write(int flip_boolean);
+                                                ^
+sod_img_writer.h:277:49: note: Function 'stbi_flip_vertically_on_write' argument 1 names different: declaration 'flip_boolean' definition 'flag'.
+STBIWDEF void stbi_flip_vertically_on_write(int flag)
+                                                ^
+sod_img_writer.h:495:79: style:inconclusive: Function 'stbi_write_bmp_to_func' argument 3 names different: declaration 'w' definition 'x'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data)
+                                                                              ^
+sod_img_writer.h:205:79: note: Function 'stbi_write_bmp_to_func' argument 3 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+                                                                              ^
+sod_img_writer.h:495:79: note: Function 'stbi_write_bmp_to_func' argument 3 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data)
+                                                                              ^
+sod_img_writer.h:495:86: style:inconclusive: Function 'stbi_write_bmp_to_func' argument 4 names different: declaration 'h' definition 'y'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data)
+                                                                                     ^
+sod_img_writer.h:205:86: note: Function 'stbi_write_bmp_to_func' argument 4 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+                                                                                     ^
+sod_img_writer.h:495:86: note: Function 'stbi_write_bmp_to_func' argument 4 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data)
+                                                                                     ^
+sod_img_writer.h:503:55: style:inconclusive: Function 'stbi_write_bmp' argument 2 names different: declaration 'w' definition 'x'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_bmp(char const *filename, int x, int y, int comp, const void *data)
+                                                      ^
+sod_img_writer.h:192:55: note: Function 'stbi_write_bmp' argument 2 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_bmp(char const *filename, int w, int h, int comp, const void  *data);
+                                                      ^
+sod_img_writer.h:503:55: note: Function 'stbi_write_bmp' argument 2 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_bmp(char const *filename, int x, int y, int comp, const void *data)
+                                                      ^
+sod_img_writer.h:503:62: style:inconclusive: Function 'stbi_write_bmp' argument 3 names different: declaration 'h' definition 'y'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_bmp(char const *filename, int x, int y, int comp, const void *data)
+                                                             ^
+sod_img_writer.h:192:62: note: Function 'stbi_write_bmp' argument 3 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_bmp(char const *filename, int w, int h, int comp, const void  *data);
+                                                             ^
+sod_img_writer.h:503:62: note: Function 'stbi_write_bmp' argument 3 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_bmp(char const *filename, int x, int y, int comp, const void *data)
+                                                             ^
+sod_img_writer.h:600:79: style:inconclusive: Function 'stbi_write_tga_to_func' argument 3 names different: declaration 'w' definition 'x'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_tga_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data)
+                                                                              ^
+sod_img_writer.h:206:79: note: Function 'stbi_write_tga_to_func' argument 3 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+                                                                              ^
+sod_img_writer.h:600:79: note: Function 'stbi_write_tga_to_func' argument 3 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_tga_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data)
+                                                                              ^
+sod_img_writer.h:600:86: style:inconclusive: Function 'stbi_write_tga_to_func' argument 4 names different: declaration 'h' definition 'y'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_tga_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data)
+                                                                                     ^
+sod_img_writer.h:206:86: note: Function 'stbi_write_tga_to_func' argument 4 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
+                                                                                     ^
+sod_img_writer.h:600:86: note: Function 'stbi_write_tga_to_func' argument 4 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_tga_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data)
+                                                                                     ^
+sod_img_writer.h:608:55: style:inconclusive: Function 'stbi_write_tga' argument 2 names different: declaration 'w' definition 'x'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_tga(char const *filename, int x, int y, int comp, const void *data)
+                                                      ^
+sod_img_writer.h:193:55: note: Function 'stbi_write_tga' argument 2 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_tga(char const *filename, int w, int h, int comp, const void  *data);
+                                                      ^
+sod_img_writer.h:608:55: note: Function 'stbi_write_tga' argument 2 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_tga(char const *filename, int x, int y, int comp, const void *data)
+                                                      ^
+sod_img_writer.h:608:62: style:inconclusive: Function 'stbi_write_tga' argument 3 names different: declaration 'h' definition 'y'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_tga(char const *filename, int x, int y, int comp, const void *data)
+                                                             ^
+sod_img_writer.h:193:62: note: Function 'stbi_write_tga' argument 3 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_tga(char const *filename, int w, int h, int comp, const void  *data);
+                                                             ^
+sod_img_writer.h:608:62: note: Function 'stbi_write_tga' argument 3 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_tga(char const *filename, int x, int y, int comp, const void *data)
+                                                             ^
+sod_img_writer.h:777:79: style:inconclusive: Function 'stbi_write_hdr_to_func' argument 3 names different: declaration 'w' definition 'x'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const float *data)
+                                                                              ^
+sod_img_writer.h:207:79: note: Function 'stbi_write_hdr_to_func' argument 3 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);
+                                                                              ^
+sod_img_writer.h:777:79: note: Function 'stbi_write_hdr_to_func' argument 3 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const float *data)
+                                                                              ^
+sod_img_writer.h:777:86: style:inconclusive: Function 'stbi_write_hdr_to_func' argument 4 names different: declaration 'h' definition 'y'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const float *data)
+                                                                                     ^
+sod_img_writer.h:207:86: note: Function 'stbi_write_hdr_to_func' argument 4 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);
+                                                                                     ^
+sod_img_writer.h:777:86: note: Function 'stbi_write_hdr_to_func' argument 4 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const float *data)
+                                                                                     ^
+sod_img_writer.h:785:55: style:inconclusive: Function 'stbi_write_hdr' argument 2 names different: declaration 'w' definition 'x'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_hdr(char const *filename, int x, int y, int comp, const float *data)
+                                                      ^
+sod_img_writer.h:194:55: note: Function 'stbi_write_hdr' argument 2 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_hdr(char const *filename, int w, int h, int comp, const float *data);
+                                                      ^
+sod_img_writer.h:785:55: note: Function 'stbi_write_hdr' argument 2 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_hdr(char const *filename, int x, int y, int comp, const float *data)
+                                                      ^
+sod_img_writer.h:785:62: style:inconclusive: Function 'stbi_write_hdr' argument 3 names different: declaration 'h' definition 'y'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_hdr(char const *filename, int x, int y, int comp, const float *data)
+                                                             ^
+sod_img_writer.h:194:62: note: Function 'stbi_write_hdr' argument 3 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_hdr(char const *filename, int w, int h, int comp, const float *data);
+                                                             ^
+sod_img_writer.h:785:62: note: Function 'stbi_write_hdr' argument 3 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_hdr(char const *filename, int x, int y, int comp, const float *data)
+                                                             ^
+sod_img_writer.h:1192:55: style:inconclusive: Function 'stbi_write_png' argument 2 names different: declaration 'w' definition 'x'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_png(char const *filename, int x, int y, int comp, const void *data, int stride_bytes)
+                                                      ^
+sod_img_writer.h:191:55: note: Function 'stbi_write_png' argument 2 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_png(char const *filename, int w, int h, int comp, const void  *data, int stride_in_bytes);
+                                                      ^
+sod_img_writer.h:1192:55: note: Function 'stbi_write_png' argument 2 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_png(char const *filename, int x, int y, int comp, const void *data, int stride_bytes)
+                                                      ^
+sod_img_writer.h:1192:62: style:inconclusive: Function 'stbi_write_png' argument 3 names different: declaration 'h' definition 'y'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_png(char const *filename, int x, int y, int comp, const void *data, int stride_bytes)
+                                                             ^
+sod_img_writer.h:191:62: note: Function 'stbi_write_png' argument 3 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_png(char const *filename, int w, int h, int comp, const void  *data, int stride_in_bytes);
+                                                             ^
+sod_img_writer.h:1192:62: note: Function 'stbi_write_png' argument 3 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_png(char const *filename, int x, int y, int comp, const void *data, int stride_bytes)
+                                                             ^
+sod_img_writer.h:1192:97: style:inconclusive: Function 'stbi_write_png' argument 6 names different: declaration 'stride_in_bytes' definition 'stride_bytes'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_png(char const *filename, int x, int y, int comp, const void *data, int stride_bytes)
+                                                                                                ^
+sod_img_writer.h:191:98: note: Function 'stbi_write_png' argument 6 names different: declaration 'stride_in_bytes' definition 'stride_bytes'.
+STBIWDEF int stbi_write_png(char const *filename, int w, int h, int comp, const void  *data, int stride_in_bytes);
+                                                                                                 ^
+sod_img_writer.h:1192:97: note: Function 'stbi_write_png' argument 6 names different: declaration 'stride_in_bytes' definition 'stride_bytes'.
+STBIWDEF int stbi_write_png(char const *filename, int x, int y, int comp, const void *data, int stride_bytes)
+                                                                                                ^
+sod_img_writer.h:1208:79: style:inconclusive: Function 'stbi_write_png_to_func' argument 3 names different: declaration 'w' definition 'x'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data, int stride_bytes)
+                                                                              ^
+sod_img_writer.h:204:79: note: Function 'stbi_write_png_to_func' argument 3 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
+                                                                              ^
+sod_img_writer.h:1208:79: note: Function 'stbi_write_png_to_func' argument 3 names different: declaration 'w' definition 'x'.
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data, int stride_bytes)
+                                                                              ^
+sod_img_writer.h:1208:86: style:inconclusive: Function 'stbi_write_png_to_func' argument 4 names different: declaration 'h' definition 'y'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data, int stride_bytes)
+                                                                                     ^
+sod_img_writer.h:204:86: note: Function 'stbi_write_png_to_func' argument 4 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
+                                                                                     ^
+sod_img_writer.h:1208:86: note: Function 'stbi_write_png_to_func' argument 4 names different: declaration 'h' definition 'y'.
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data, int stride_bytes)
+                                                                                     ^
+sod_img_writer.h:1208:121: style:inconclusive: Function 'stbi_write_png_to_func' argument 7 names different: declaration 'stride_in_bytes' definition 'stride_bytes'. [funcArgNamesDifferent]
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data, int stride_bytes)
+                                                                                                                        ^
+sod_img_writer.h:204:122: note: Function 'stbi_write_png_to_func' argument 7 names different: declaration 'stride_in_bytes' definition 'stride_bytes'.
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
+                                                                                                                         ^
+sod_img_writer.h:1208:121: note: Function 'stbi_write_png_to_func' argument 7 names different: declaration 'stride_in_bytes' definition 'stride_bytes'.
+STBIWDEF int stbi_write_png_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data, int stride_bytes)
+                                                                                                                        ^
+sod_img_reader.h:2071:36: portability: Shifting signed 32-bit value by 31 bits is implementation-defined behaviour [shiftTooManyBitsSigned]
+ sgn = (stbi__int32)j->code_buffer >> 31; // sign bit is always in MSB
+                                   ^
+sod_img_reader.h:2072:6: warning: Shifting 32-bit value by 33 bits is undefined behaviour. See condition at line 2073. [shiftTooManyBits]
+ k = stbi_lrot(j->code_buffer, n);
+     ^
+sod_img_reader.h:2073:2: note: Assuming that condition 'n>=0' is not redundant
+ STBI_ASSERT(n >= 0 && n < (int)(sizeof(stbi__bmask) / sizeof(*stbi__bmask)));
+ ^
+sod_img_reader.h:2072:6: note: Shift
+ k = stbi_lrot(j->code_buffer, n);
+     ^
+sod_img_reader.h:2072:6: warning: Expression 'n' can have a negative value. That is converted to an unsigned value and used in an unsigned calculation. [signConversionCond]
+ k = stbi_lrot(j->code_buffer, n);
+     ^
+sod_img_reader.h:2073:2: note: Assuming that condition 'n>=0' is not redundant
+ STBI_ASSERT(n >= 0 && n < (int)(sizeof(stbi__bmask) / sizeof(*stbi__bmask)));
+ ^
+sod_img_reader.h:2072:6: note: Negative value is converted to an unsigned value
+ k = stbi_lrot(j->code_buffer, n);
+     ^
+sod.c:3954:23: error: Uninitialized struct member: state.workspace [uninitStructMember]
+ forward_network(net, state);
+                      ^
+sod.c:1761:12: style: Variable 'recursive' is assigned a value that is never used. [unreadVariable]
+ recursive = 0; /* cc warning */
+           ^
+sod.c:6781:12: style: Variable 'l.cost[0]' is assigned a value that is never used. [unreadVariable]
+ l.cost[0] = sum_array(l.output, l.batch*l.inputs);
+           ^
+sod.c:8325:11: style: Variable 'options' is assigned a value that is never used. [unreadVariable]
+  options = 0; /* cc warn on unused var */
+          ^
+sod.c:9286:35: style: Variable 'm.data[c*m.h*m.w+y*m.w+x]' is assigned a value that is never used. [unreadVariable]
+  m.data[c*m.h*m.w + y * m.w + x] = val;
+                                  ^
+sod.c:9300:35: style: Variable 'm.data[c*m.h*m.w+y*m.w+x]' is assigned a value that is never used. [unreadVariable]
+  m.data[c*m.h*m.w + y * m.w + x] += val;
+                                  ^
+sod.c:12175:37: error: The address of local variable 'iNode' is accessed at non-zero index. [objectIndex]
+ c1 = (cs * SOD_CMP_FIXED_PT + zNode[1] * ss) / SOD_CMP_FIXED_PT;
+                                    ^
+sod.c:12172:36: note: Address of variable taken here.
+ const char *zNode = (const char *)&iNode;
+                                   ^
+sod.c:12175:37: note: The address of local variable 'iNode' is accessed at non-zero index.
+ c1 = (cs * SOD_CMP_FIXED_PT + zNode[1] * ss) / SOD_CMP_FIXED_PT;
+                                    ^
+sod.c:12176:37: error: The address of local variable 'iNode' is accessed at non-zero index. [objectIndex]
+ r2 = (rs * SOD_CMP_FIXED_PT + zNode[2] * ss) / SOD_CMP_FIXED_PT;
+                                    ^
+sod.c:12172:36: note: Address of variable taken here.
+ const char *zNode = (const char *)&iNode;
+                                   ^
+sod.c:12176:37: note: The address of local variable 'iNode' is accessed at non-zero index.
+ r2 = (rs * SOD_CMP_FIXED_PT + zNode[2] * ss) / SOD_CMP_FIXED_PT;
+                                    ^
+sod.c:12177:37: error: The address of local variable 'iNode' is accessed at non-zero index. [objectIndex]
+ c2 = (cs * SOD_CMP_FIXED_PT + zNode[3] * ss) / SOD_CMP_FIXED_PT;
+                                    ^
+sod.c:12172:36: note: Address of variable taken here.
+ const char *zNode = (const char *)&iNode;
+                                   ^
+sod.c:12177:37: note: The address of local variable 'iNode' is accessed at non-zero index.
+ c2 = (cs * SOD_CMP_FIXED_PT + zNode[3] * ss) / SOD_CMP_FIXED_PT;
+                                    ^
+sod.c:12287:3: error: The address of local variable 'iCode' is accessed at non-zero index. [objectIndex]
+ z[1] = zBox[2] + rand() % (zBox[3] - zBox[2] + 1);
+  ^
+sod.c:12285:14: note: Address of variable taken here.
+ z = (char *)&iCode;
+             ^
+sod.c:12287:3: note: The address of local variable 'iCode' is accessed at non-zero index.
+ z[1] = zBox[2] + rand() % (zBox[3] - zBox[2] + 1);
+  ^
+sod.c:12288:3: error: The address of local variable 'iCode' is accessed at non-zero index. [objectIndex]
+ z[2] = zBox[0] + rand() % (zBox[1] - zBox[0] + 1);
+  ^
+sod.c:12285:14: note: Address of variable taken here.
+ z = (char *)&iCode;
+             ^
+sod.c:12288:3: note: The address of local variable 'iCode' is accessed at non-zero index.
+ z[2] = zBox[0] + rand() % (zBox[1] - zBox[0] + 1);
+  ^
+sod.c:12289:3: error: The address of local variable 'iCode' is accessed at non-zero index. [objectIndex]
+ z[3] = zBox[2] + rand() % (zBox[3] - zBox[2] + 1);
+  ^
+sod.c:12285:14: note: Address of variable taken here.
+ z = (char *)&iCode;
+             ^
+sod.c:12289:3: note: The address of local variable 'iCode' is accessed at non-zero index.
+ z[3] = zBox[2] + rand() % (zBox[3] - zBox[2] + 1);
+  ^
+sod.c:13060:22: warning: Logical disjunction always evaluates to true: EXPR != '[' || EXPR != '#'. [incorrectLogicOperator]
+ if (zConf[0] != '[' || zConf[0] != '#' || zConf[0] != ';' || sz < 170) {
+                     ^
+sod.c:13060:41: warning: Logical disjunction always evaluates to true: EXPR != '#' || EXPR != ';'. [incorrectLogicOperator]
+ if (zConf[0] != '[' || zConf[0] != '#' || zConf[0] != ';' || sz < 170) {
+                                        ^
+sod.c:482:21: style: Condition 'errorflag>0' is always true [knownConditionTrueFalse]
+   return errorflag > 0 ? -1 : SOD_OK;
+                    ^
+sod.c:477:16: note: Assignment 'errorflag=1', assigned value is 1
+   errorflag = 1;
+               ^
+sod.c:479:11: note: Assuming condition is false
+   if (rc != SOD_OK) {
+          ^
+sod.c:482:21: note: Condition 'errorflag>0' is always true
+   return errorflag > 0 ? -1 : SOD_OK;
+                    ^
+sod.c:605:20: style: Condition 'longvalue<0' is always false [knownConditionTrueFalse]
+     if (longvalue < 0) {
+                   ^
+sod.c:602:18: note: Assuming that condition 'longvalue<0' is not redundant
+    if (longvalue<0) {
+                 ^
+sod.c:603:18: note: Assignment 'longvalue=-longvalue', assigned value is 0
+     longvalue = -longvalue;
+                 ^
+sod.c:605:20: note: Condition 'longvalue<0' is always false
+     if (longvalue < 0) {
+                   ^
+sod.c:619:20: style: Condition 'longvalue<0' is always false [knownConditionTrueFalse]
+     if (longvalue < 0) {
+                   ^
+sod.c:616:18: note: Assuming that condition 'longvalue<0' is not redundant
+    if (longvalue<0) {
+                 ^
+sod.c:617:18: note: Assignment 'longvalue=-longvalue', assigned value is 0
+     longvalue = -longvalue;
+                 ^
+sod.c:619:20: note: Condition 'longvalue<0' is always false
+     if (longvalue < 0) {
+                   ^
+sod.c:11829:3: error: Common realloc mistake: 'z' nulled but not freed upon failure [memleakOnRealloc]
+  z = realloc(z, pIn->nByte);
+  ^
+sod.c:646:16: style: The scope of the variable 'x' can be reduced. [variableScope]
+    char *pre, x;
+               ^
+sod.c:11687:11: style: The scope of the variable 'exp' can be reduced. [variableScope]
+ int Lim, exp;
+          ^
+sod.c:11688:10: style: The scope of the variable 'p' can be reduced. [variableScope]
+ double *p = 0;
+         ^
+sod.c:12689:6: style: The scope of the variable 'round' can be reduced. [variableScope]
+ int round, rc;
+     ^
+sod.c:12831:8: style: The scope of the variable 'fpr' can be reduced. [variableScope]
+ float fpr;
+       ^
+sod.c:988:18: style: Checking if unsigned expression 'pSet->nUsed' is less than zero. [unsignedLessThanZero]
+ if (pSet->nUsed <= 0) {
+                 ^
+sod.c:941:31: style: Redundant pointer operation on 'pBlob' - it's already a pointer. [redundantPointerOp]
+ FormatMount(SXFMT_CONS_BLOB, &(*pBlob), 0, 0, &n, zFormat, ap);
+                              ^
+sod.c:11573:23: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+   sod_config_log_msg(&(*pTrainer), "[Line: %d] Expecting '=' next to the key: '%z', got '%c'. Any remaining value will be ignored\n", line, pName, zIn[0]);
+                      ^
+sod.c:11596:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "Running out of memory\n");
+                     ^
+sod.c:11623:21: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+ sod_config_log_msg(&(*pTrainer), "Parsing training configuration...\n");
+                    ^
+sod.c:11633:24: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+    sod_config_log_msg(&(*pTrainer), "[Line: %d] Empty layer found..ignoring\n", line);
+                       ^
+sod.c:11636:24: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+    sod_config_log_msg(&(*pTrainer), "[Line: %d] new layer found: '%z'\n", line, &sEntry);
+                       ^
+sod.c:11638:47: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+    if (SOD_OK != sod_config_create_new_layer(&(*pTrainer), &sEntry)) {
+                                              ^
+sod.c:11645:57: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_get_name_value_pair(&sEntry, &sKey, &sVal, &(*pTrainer), line);
+                                                        ^
+sod.c:11647:23: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+   sod_config_log_msg(&(*pTrainer), "[Line: %d] Missing configuration key..discarding\n", line);
+                      ^
+sod.c:11653:23: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+   sod_config_log_msg(&(*pTrainer), "[Line: %d] No upper layer associated with the key: '%z'..discarding\n", line, &sKey);
+                      ^
+sod.c:11898:26: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+      sod_config_log_msg(&(*pTrainer), "Minimum samples to collect must be greater than 10\n");
+                         ^
+sod.c:11939:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "Missing positive or negatives samples path..aborting\n");
+                     ^
+sod.c:11944:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "Running out of memory for the [paths] layer\n");
+                     ^
+sod.c:12030:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "Running out of memory for the [detector] layer\n");
+                     ^
+sod.c:12080:26: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+      sod_config_log_msg(&(*pTrainer), "Maximum False Positive Rate (FPR) must be a float value set between 0.1 .. 1\n");
+                         ^
+sod.c:12091:26: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+      sod_config_log_msg(&(*pTrainer), "Minimum True Positive Rate (TPR) must be a float value set between 0.1 .. 1\n");
+                         ^
+sod.c:12107:26: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+      sod_config_log_msg(&(*pTrainer), "Target false Positive Rate (TFPR) cannot take a negative value\n");
+                         ^
+sod.c:12118:26: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+      sod_config_log_msg(&(*pTrainer), "Maximum tree depth must be an integer set between 5 .. 30\n");
+                         ^
+sod.c:12129:26: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+      sod_config_log_msg(&(*pTrainer), "Minimum tree depth must be an integer set between 1 .. 12\n");
+                         ^
+sod.c:12140:26: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+      sod_config_log_msg(&(*pTrainer), "Maximum number of trees allowed is: 100\n");
+                         ^
+sod.c:12156:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "%d error(s) were recorded. Please check your network configuration again\n", nErr);
+                     ^
+sod.c:12196:46: style: Redundant pointer operation on 'pTarget' - it's already a pointer. [redundantPointerOp]
+  idx = 2 * idx + BinTest(iNode, rs, cs, ss, &(*pTarget));
+                                             ^
+sod.c:12209:58: style: Redundant pointer operation on 'pTarget' - it's already a pointer. [redundantPointerOp]
+  *score += DetectorGetTreeOutput(&aTree[n], rs, cs, ss, &(*pTarget));
+                                                         ^
+sod.c:12348:20: style: Redundant pointer operation on 'pTree' - it's already a pointer. [redundantPointerOp]
+  DetectorGrowTree(&(*pTree), 2 * nodeidx + 1, cur_depth + 1, max_depth, wt, &aInd[0], aSample, i);
+                   ^
+sod.c:12349:20: style: Redundant pointer operation on 'pTree' - it's already a pointer. [redundantPointerOp]
+  DetectorGrowTree(&(*pTree), 2 * nodeidx + 2, cur_depth + 1, max_depth, wt, &aInd[i], aSample, nSample - i);
+                   ^
+sod.c:12385:19: style: Redundant pointer operation on 'pTree' - it's already a pointer. [redundantPointerOp]
+ DetectorGrowTree(&(*pTree), 0, 0, depth, wt, aInd, aSample, (uint32_t)nSample);
+                  ^
+sod.c:12484:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "Final threshold value for tree#%d set to: %f\n",
+                     ^
+sod.c:12526:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "IO error while entering directory: '%s'\n", zPath);
+                     ^
+sod.c:12530:21: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+ sod_config_log_msg(&(*pTrainer), "Entering directory: '%s'..\n", zPath);
+                    ^
+sod.c:12550:43: style: Redundant pointer operation on 'pDet' - it's already a pointer. [redundantPointerOp]
+     if (SOD_OK == DetectorCollectSamples(&(*pDet), zEntry, iType, 1, rec_count)) {
+                                          ^
+sod.c:12557:25: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+     sod_config_log_msg(&(*pTrainer), "Recursion limit (%d) reached while entering directory: '%s'..aborting\n", SOD_MAX_RECURSE_COUNT, zEntry);
+                        ^
+sod.c:12573:23: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+   sod_config_log_msg(&(*pTrainer), "Discarding file not of the expected extension: '%s'\n", zEntry);
+                      ^
+sod.c:12577:23: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+   sod_config_log_msg(&(*pTrainer), "Maximum samples to collect limit reached: %u..stopping\n", (unsigned int)pTarget->nUsed);
+                      ^
+sod.c:12585:23: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+   sod_config_log_msg(&(*pTrainer), "Cannot load sample: '%s'..ignoring\n", zEntry);
+                      ^
+sod.c:12639:24: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+    sod_config_log_msg(&(*pTrainer), "Over %u %s samples were collected so far..\n", (unsigned int)pTarget->nUsed, (iType == SOD_TR_SAMPLE_POS ? "positive" : "negative/test"));
+                       ^
+sod.c:12649:24: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+    sod_config_log_msg(&(*pTrainer), "no positive samples were collected on directory: '%s'..aborting\n", zPath);
+                       ^
+sod.c:12656:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "%u %s samples were collected on directory: '%s'\n", (unsigned int)pTarget->nUsed, (iType == SOD_TR_SAMPLE_POS ? "positive" : "negative/test"), zPath);
+                     ^
+sod.c:12690:21: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+ sod_config_log_msg(&(*pTrainer), "Sampling started [epoch#%d]\n", ++pTrainer->nEpoch);
+                    ^
+sod.c:12707:29: style: Redundant pointer operation on 'pDet' - it's already a pointer. [redundantPointerOp]
+  rc = DetectorClassifyBlob(&(*pDet), &score, sTr.rs, sTr.cs, sTr.ss, pRaw);
+                            ^
+sod.c:12716:21: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+ sod_config_log_msg(&(*pTrainer), "%u positive samples were prepared for epoch#%d\n", (unsigned int)*nPos, pTrainer->nEpoch);
+                    ^
+sod.c:12736:30: style: Redundant pointer operation on 'pDet' - it's already a pointer. [redundantPointerOp]
+   rc = DetectorClassifyBlob(&(*pDet), &score, r, c, s, pRaw);
+                             ^
+sod.c:12758:25: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+     sod_config_log_msg(&(*pTrainer), "Too many background image collection rounds (> 10K). Perhaps should you stop training and test the accuracy of your model?\n");
+                        ^
+sod.c:12775:21: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+ sod_config_log_msg(&(*pTrainer),
+                    ^
+sod.c:12979:15: style: Redundant pointer operation on 'pSet' - it's already a pointer. [redundantPointerOp]
+ SySetRelease(&(*pSet));
+              ^
+sod.c:13007:46: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+ sod_realnet_trainer_register_builtin_layers(&(*pTrainer));
+                                             ^
+sod.c:13064:23: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+   sod_config_log_msg(&(*pTrainer), "Error while reading training configuration file: '%s'\n", zConf);
+                      ^
+sod.c:13069:21: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+ sod_config_log_msg(&(*pTrainer), zBanner);
+                    ^
+sod.c:13071:24: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+ rc = sod_parse_config(&(*pTrainer), zConf, sz);
+                       ^
+sod.c:13074:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "Parsing finished with errors..aborting\n");
+                     ^
+sod.c:13078:22: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_config_log_msg(&(*pTrainer), "Parsing done. Processing network layers now..\n");
+                     ^
+sod.c:13084:47: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+   sod_layer *pLayer = sod_find_builtin_layer(&(*pTrainer), &pConf->sName);
+                                              ^
+sod.c:13087:24: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+    sod_config_log_msg(&(*pTrainer), "No built-in layer(s) were found for this configuration: '%z'..discarding\n", &pConf->sName);
+                       ^
+sod.c:13090:24: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+    sod_config_log_msg(&(*pTrainer), "Processing layer: '%z'..\n", &pConf->sName);
+                       ^
+sod.c:13092:24: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+    rc = pLayer->xLoad(&(*pTrainer), (sod_config_node *)SySetBasePtr(&pConf->aNode), (int)SySetUsed(&pConf->aNode), &pLayer->pLayerData);
+                       ^
+sod.c:13110:46: style: Redundant pointer operation on 'pTrainer' - it's already a pointer. [redundantPointerOp]
+  sod_layer *pLayer = sod_find_builtin_layer(&(*pTrainer), &pConf->sName);
+                                             ^
+sod.c:11688:12: style: Variable 'p' is assigned a value that is never used. [unreadVariable]
+ double *p = 0;
+           ^
+sod.c:13939:23: style: Redundant pointer operation on 'pImg' - it's already a pointer. [redundantPointerOp]
+ sod_md_alloc_dyn_img(&(*pImg), src->width, src->height, src->nChannels);
+                      ^
+sod_img_writer.h:1003:0: information: Skipping configuration 'STBIW_CRC32' since the value of 'STBIW_CRC32' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ return STBIW_CRC32(buffer, len);
+^
+sod_img_writer.h:772:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  STBIW_FREE(scratch);
+^
+sod_img_writer.h:974:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  (void)stbiw__sbfree(hash_table[i]);
+^
+sod_img_writer.h:975:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ STBIW_FREE(hash_table);
+^
+sod_img_writer.h:1121:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ line_buffer = (signed char *)STBIW_MALLOC(x * n); if (!line_buffer) { STBIW_FREE(filt); return 0; }
+^
+sod_img_writer.h:1152:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ STBIW_FREE(line_buffer);
+^
+sod_img_writer.h:1154:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ STBIW_FREE(filt);
+^
+sod_img_writer.h:1179:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ STBIW_FREE(zlib);
+^
+sod_img_writer.h:1200:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ if (!f) { STBIW_FREE(png); return 0; }
+^
+sod_img_writer.h:1203:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ STBIW_FREE(png);
+^
+sod_img_writer.h:1214:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ STBIW_FREE(png);
+^
+sod_img_writer.h:757:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  unsigned char *scratch = (unsigned char *)STBIW_MALLOC(x * 4);
+^
+sod_img_writer.h:900:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ unsigned char ***hash_table = (unsigned char***)STBIW_MALLOC(stbiw__ZHASH * sizeof(unsigned char**));
+^
+sod_img_writer.h:1120:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ filt = (unsigned char *)STBIW_MALLOC((x*n + 1) * y); if (!filt) return 0;
+^
+sod_img_writer.h:1121:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ line_buffer = (signed char *)STBIW_MALLOC(x * n); if (!line_buffer) { STBIW_FREE(filt); return 0; }
+^
+sod_img_writer.h:1158:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ out = (unsigned char *)STBIW_MALLOC(8 + 12 + 13 + 12 + zlen + 12);
+^
+sod_img_writer.h:821:0: information: Skipping configuration 'STBIW_FREE;STBIW_MALLOC;STBIW_REALLOC;STBIW_REALLOC_SIZED' since the value of 'STBIW_REALLOC_SIZED' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+ void *p = STBIW_REALLOC_SIZED(*arr ? stbiw__sbraw(*arr) : 0, *arr ? (stbiw__sbm(*arr)*itemsize + sizeof(int) * 2) : 0, itemsize * m + sizeof(int) * 2);
+^
+sod.c:10052:0: style: The function 'sod_blend_image' is never used. [unusedFunction]
+
+^
+sod.c:9072:0: style: The function 'sod_cnn_get_network_size' is never used. [unusedFunction]
+
+^
+sod.c:10121:0: style: The function 'sod_composite_image' is never used. [unusedFunction]
+
+^
+sod.c:11147:0: style: The function 'sod_embed_image' is never used. [unusedFunction]
+
+^
+sod.c:10367:0: style: The function 'sod_equalize_histogram' is never used. [unusedFunction]
+
+^
+sod.c:9441:0: style: The function 'sod_grayscale_image_3c' is never used. [unusedFunction]
+
+^
+sod.c:9211:0: style: The function 'sod_grow_image' is never used. [unusedFunction]
+
+^
+sod.c:11128:0: style: The function 'sod_image_distance' is never used. [unusedFunction]
+
+^
+sod.c:11285:0: style: The function 'sod_image_draw_bbox' is never used. [unusedFunction]
+
+^
+sod.c:9305:0: style: The function 'sod_img_add_pixel' is never used. [unusedFunction]
+
+^
+sod.c:11041:0: style: The function 'sod_img_bgr_to_rgb' is never used. [unusedFunction]
+
+^
+sod.c:13854:0: style: The function 'sod_img_blob_save_as_bmp' is never used. [unusedFunction]
+
+^
+sod.c:13845:0: style: The function 'sod_img_blob_save_as_jpeg' is never used. [unusedFunction]
+
+^
+sod.c:13836:0: style: The function 'sod_img_blob_save_as_png' is never used. [unusedFunction]
+
+^
+sod.c:13932:0: style: The function 'sod_img_fill_from_cv_stream' is never used. [unusedFunction]
+
+^
+sod.c:9234:0: style: The function 'sod_img_get_layer' is never used. [unusedFunction]
+
+^
+sod.c:9273:0: style: The function 'sod_img_get_pixel' is never used. [unusedFunction]
+
+^
+sod.c:9368:0: style: The function 'sod_img_hsv_to_rgb' is never used. [unusedFunction]
+
+^
+sod.c:13898:0: style: The function 'sod_img_load_from_cv' is never used. [unusedFunction]
+
+^
+sod.c:13921:0: style: The function 'sod_img_load_from_cv_stream' is never used. [unusedFunction]
+
+^
+sod.c:13558:0: style: The function 'sod_img_load_from_mem' is never used. [unusedFunction]
+
+^
+sod.c:9324:0: style: The function 'sod_img_rgb_to_hsv' is never used. [unusedFunction]
+
+^
+sod.c:11083:0: style: The function 'sod_img_rgb_to_yuv' is never used. [unusedFunction]
+
+^
+sod.c:13822:0: style: The function 'sod_img_save_as_jpeg' is never used. [unusedFunction]
+
+^
+sod.c:13950:0: style: The function 'sod_img_save_to_cv_jpg' is never used. [unusedFunction]
+
+^
+sod.c:11056:0: style: The function 'sod_img_yuv_to_rgb' is never used. [unusedFunction]
+
+^
+sod.c:13973:0: style: The function 'sod_lib_copyright' is never used. [unusedFunction]
+
+^
+sod.c:9219:0: style: The function 'sod_make_random_image' is never used. [unusedFunction]
+
+^
+sod.c:11356:0: style: The function 'sod_normalize_image' is never used. [unusedFunction]
+
+^
+sod.c:11007:0: style: The function 'sod_random_augment_image' is never used. [unusedFunction]
+
+^
+sod.c:10332:0: style: The function 'sod_random_crop_image' is never used. [unusedFunction]
+
+^
+sod.c:13411:0: style: The function 'sod_realnet_model_config' is never used. [unusedFunction]
+
+^
+sod.c:10187:0: style: The function 'sod_resize_max' is never used. [unusedFunction]
+
+^
+sod.c:10206:0: style: The function 'sod_resize_min' is never used. [unusedFunction]
+
+^
+sod.c:10072:0: style: The function 'sod_scale_image_channel' is never used. [unusedFunction]
+
+^
+sod.c:9652:0: style: The function 'sod_sharpen_filtering_image' is never used. [unusedFunction]
+
+^
+sod.c:10086:0: style: The function 'sod_translate_image_channel' is never used. [unusedFunction]
+
+^
+sod.c:10342:0: style: The function 'sod_transpose_image' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
